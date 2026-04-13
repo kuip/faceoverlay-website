@@ -24,20 +24,28 @@ const canonicalURL = Astro.site
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="author" content="Kuip Limited" />
+    <meta name="application-name" content="FaceOverlay" />
+    <meta name="apple-mobile-web-app-title" content="FaceOverlay" />
+    <meta name="theme-color" content="#05070b" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FaceOverlay" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, Astro.site ?? Astro.url)} />
+    <meta property="og:image:alt" content="FaceOverlay for macOS" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site ?? Astro.url)} />
+    <meta name="twitter:image:alt" content="FaceOverlay for macOS" />
 
     <script
       type="application/ld+json"
@@ -49,6 +57,14 @@ const canonicalURL = Astro.site
         applicationCategory: 'MultimediaApplication',
         description,
         downloadUrl: 'https://apps.apple.com/app/id6762126517',
+        url: Astro.site ?? 'https://faceoverlay.kuip.co.uk',
+        image: new URL('/screenshots/screenshot1.png', Astro.site ?? Astro.url).toString(),
+        screenshot: [
+          new URL('/screenshots/screenshot1.png', Astro.site ?? Astro.url).toString(),
+          new URL('/screenshots/screenshot2.png', Astro.site ?? Astro.url).toString(),
+          new URL('/screenshots/screenshot3.png', Astro.site ?? Astro.url).toString(),
+        ],
+        isAccessibleForFree: true,
         offers: {
           '@type': 'Offer',
           price: '0',
@@ -66,10 +82,25 @@ const canonicalURL = Astro.site
         author: {
           '@type': 'Organization',
           name: 'Kuip Limited',
+          url: Astro.site ?? 'https://faceoverlay.kuip.co.uk',
         },
         publisher: {
           '@type': 'Organization',
           name: 'Kuip Limited',
+          url: Astro.site ?? 'https://faceoverlay.kuip.co.uk',
+        },
+      })}
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Kuip Limited',
+        url: Astro.site ?? 'https://faceoverlay.kuip.co.uk',
+        brand: {
+          '@type': 'Brand',
+          name: 'FaceOverlay',
         },
       })}
     />
@@ -186,7 +217,18 @@ const canonicalURL = Astro.site
 
     <footer class="footer">
       <div class="footer-inner">
-        <p>&copy; {new Date().getFullYear()} Kuip Limited. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Kuip Limited. All rights reserved.
+          <br />
+          <a
+            href="#"
+            id="contact-email-link"
+            data-user="kuip.ltd.open"
+            data-domain="gmail.com"
+          >
+            Contact email
+          </a>
+        </p>
         <p>
           <a href="/privacy">Privacy Policy</a>
           <span class="divider">•</span>
@@ -196,6 +238,20 @@ const canonicalURL = Astro.site
         </p>
       </div>
     </footer>
+
+    <script>
+      const emailLink = document.getElementById('contact-email-link');
+      if (emailLink) {
+        const user = emailLink.getAttribute('data-user');
+        const domain = emailLink.getAttribute('data-domain');
+
+        if (user && domain) {
+          const email = `${user}@${domain}`;
+          emailLink.setAttribute('href', `mailto:${email}`);
+          emailLink.textContent = email;
+        }
+      }
+    </script>
 
     <style>
       .nav {

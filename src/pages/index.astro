@@ -6,6 +6,34 @@ const screenshots = [
   { src: '/screenshots/screenshot2.png', alt: 'FaceOverlay settings for shape, opacity, and camera controls' },
   { src: '/screenshots/screenshot3.png', alt: 'FaceOverlay webcam overlay used during screen sharing on macOS' },
 ];
+
+const faq = [
+  {
+    question: 'What is FaceOverlay?',
+    answer:
+      'FaceOverlay is a native macOS app that shows your webcam in a floating window above your desktop, making presentations, demos, tutorials, and calls feel more personal without a full streaming setup.',
+  },
+  {
+    question: 'Who is FaceOverlay for?',
+    answer:
+      'FaceOverlay is built for presenters, developers, educators, designers, founders, and anyone who records or shares their screen on a Mac and wants a lightweight webcam overlay.',
+  },
+  {
+    question: 'Does FaceOverlay work without creating an account?',
+    answer:
+      'Yes. FaceOverlay is designed to work without requiring a user account for its core webcam overlay functionality.',
+  },
+  {
+    question: 'Can I move and resize the camera overlay?',
+    answer:
+      'Yes. The overlay can be moved, resized, mirrored, rounded, made more transparent, and configured to stay above other apps or follow desktop switching.',
+  },
+  {
+    question: 'Does FaceOverlay support background blur?',
+    answer:
+      'Yes. FaceOverlay includes background blur so your webcam overlay looks cleaner during calls, demos, and screen sharing.',
+  },
+];
 ---
 
 <BaseLayout
@@ -111,6 +139,46 @@ const screenshots = [
     </div>
   </section>
 
+  <section class="detail-section" aria-labelledby="about-faceoverlay">
+    <div class="detail-grid">
+      <article class="detail-card">
+        <div class="section-heading">
+          <p class="eyebrow">About FaceOverlay</p>
+          <h2 id="about-faceoverlay">A focused webcam overlay app for macOS.</h2>
+        </div>
+        <p>
+          FaceOverlay is a macOS webcam overlay utility for people who present,
+          teach, demo products, review designs, write code in public, or record
+          tutorials. Instead of learning a full broadcast stack, you can keep
+          your camera visible in a lightweight floating window above your
+          desktop.
+        </p>
+        <p>
+          The app is intentionally simple: choose a camera, position the window,
+          tune the shape and opacity, decide whether it stays above other apps,
+          and present. That makes FaceOverlay useful for screen sharing on video
+          calls, async demos, developer walkthroughs, founder updates, design
+          critiques, and educational content.
+        </p>
+      </article>
+
+      <article class="detail-card" aria-labelledby="faceoverlay-faq">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faceoverlay-faq">Common questions</h2>
+        </div>
+        <div class="faq-list">
+          {faq.map((item) => (
+            <section class="faq-item">
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </section>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
   <script>
     const track = document.getElementById('carouselTrack');
     const prev = document.getElementById('carouselPrev');
@@ -174,6 +242,22 @@ const screenshots = [
     }
   </script>
 </BaseLayout>
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  })}
+/>
 
 <style>
   .hero-shell,
@@ -419,6 +503,52 @@ const screenshots = [
     color: var(--muted);
   }
 
+  .detail-section {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px 76px;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 18px;
+  }
+
+  .detail-card {
+    padding: 28px;
+    border-radius: 28px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+
+  .detail-card p + p {
+    margin-top: 14px;
+  }
+
+  .detail-card p,
+  .faq-list p {
+    color: var(--muted);
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .faq-item {
+    padding: 18px 18px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .faq-item h3 {
+    font-size: 1.08rem;
+    margin-bottom: 8px;
+  }
+
   .carousel-dots {
     display: flex;
     justify-content: center;
@@ -442,7 +572,8 @@ const screenshots = [
 
   @media (max-width: 980px) {
     .hero-grid,
-    .feature-grid {
+    .feature-grid,
+    .detail-grid {
       grid-template-columns: 1fr;
     }
 

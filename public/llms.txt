@@ -27,5 +27,6 @@ FaceOverlay is a native macOS application focused on a simple use case: showing 
 ## Company
 
 - Developer: Kuip Limited
+- Full product summary: https://faceoverlay.kuip.co.uk/llms-full.txt
 - Privacy Policy: https://faceoverlay.kuip.co.uk/privacy
 - Terms of Service: https://faceoverlay.kuip.co.uk/terms
