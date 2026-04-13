@@ -139,46 +139,6 @@ const faq = [
     </div>
   </section>
 
-  <section class="detail-section" aria-labelledby="about-faceoverlay">
-    <div class="detail-grid">
-      <article class="detail-card">
-        <div class="section-heading">
-          <p class="eyebrow">About FaceOverlay</p>
-          <h2 id="about-faceoverlay">A focused webcam overlay app for macOS.</h2>
-        </div>
-        <p>
-          FaceOverlay is a macOS webcam overlay utility for people who present,
-          teach, demo products, review designs, write code in public, or record
-          tutorials. Instead of learning a full broadcast stack, you can keep
-          your camera visible in a lightweight floating window above your
-          desktop.
-        </p>
-        <p>
-          The app is intentionally simple: choose a camera, position the window,
-          tune the shape and opacity, decide whether it stays above other apps,
-          and present. That makes FaceOverlay useful for screen sharing on video
-          calls, async demos, developer walkthroughs, founder updates, design
-          critiques, and educational content.
-        </p>
-      </article>
-
-      <article class="detail-card" aria-labelledby="faceoverlay-faq">
-        <div class="section-heading">
-          <p class="eyebrow">FAQ</p>
-          <h2 id="faceoverlay-faq">Common questions</h2>
-        </div>
-        <div class="faq-list">
-          {faq.map((item) => (
-            <section class="faq-item">
-              <h3>{item.question}</h3>
-              <p>{item.answer}</p>
-            </section>
-          ))}
-        </div>
-      </article>
-    </div>
-  </section>
-
   <script>
     const track = document.getElementById('carouselTrack');
     const prev = document.getElementById('carouselPrev');
@@ -503,52 +463,6 @@ const faq = [
     color: var(--muted);
   }
 
-  .detail-section {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 0 24px 76px;
-  }
-
-  .detail-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 18px;
-  }
-
-  .detail-card {
-    padding: 28px;
-    border-radius: 28px;
-    background: var(--panel);
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow);
-  }
-
-  .detail-card p + p {
-    margin-top: 14px;
-  }
-
-  .detail-card p,
-  .faq-list p {
-    color: var(--muted);
-  }
-
-  .faq-list {
-    display: grid;
-    gap: 14px;
-  }
-
-  .faq-item {
-    padding: 18px 18px 16px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .faq-item h3 {
-    font-size: 1.08rem;
-    margin-bottom: 8px;
-  }
-
   .carousel-dots {
     display: flex;
     justify-content: center;
@@ -572,8 +486,7 @@ const faq = [
 
   @media (max-width: 980px) {
     .hero-grid,
-    .feature-grid,
-    .detail-grid {
+    .feature-grid {
       grid-template-columns: 1fr;
     }
 
