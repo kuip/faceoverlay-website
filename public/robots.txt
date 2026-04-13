@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://faceoverlay.provable.dev/sitemap-index.xml

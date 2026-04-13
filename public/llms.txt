@@ -1,0 +1,31 @@
+# FaceOverlay
+
+> FaceOverlay is a macOS app by Kuip Limited that keeps a live webcam window floating above the desktop for demos, calls, screen sharing, and recorded walkthroughs.
+
+## Product Summary
+
+FaceOverlay is a native macOS application focused on a simple use case: showing your face while you present your screen without requiring a full broadcast or streaming setup.
+
+## Key Features
+
+- Floating webcam overlay window on macOS
+- Resizable and movable camera window
+- Optional always-on-top behavior
+- Optional desktop-following behavior across Spaces
+- Adjustable opacity and corner roundness
+- Camera selection and mirror toggle
+- Background blur
+
+## Platform
+
+- macOS
+
+## Download
+
+- Mac App Store: https://apps.apple.com/app/id6762126517
+
+## Company
+
+- Developer: Kuip Limited
+- Privacy Policy: https://faceoverlay.provable.dev/privacy
+- Terms of Service: https://faceoverlay.provable.dev/terms

@@ -1,0 +1,67 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="prose">
+    <h1>{title}</h1>
+    <slot />
+  </article>
+</BaseLayout>
+
+<style>
+  .prose {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 72px 24px 96px;
+  }
+
+  .prose :global(h1) {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .prose :global(h2) {
+    margin-top: 40px;
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+  }
+
+  .prose :global(h3) {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+    color: var(--ice);
+  }
+
+  .prose :global(p),
+  .prose :global(li) {
+    color: var(--muted);
+  }
+
+  .prose :global(p) {
+    margin-bottom: 16px;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 16px;
+    padding-left: 24px;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 8px;
+  }
+
+  .prose :global(strong) {
+    color: var(--text);
+  }
+ </style>
