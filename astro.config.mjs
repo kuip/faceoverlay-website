@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://faceoverlay.provable.dev',
+  site: 'https://faceoverlay.kuip.co.uk',
   output: 'static',
   build: { format: 'directory' },
   markdown: {

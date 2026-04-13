@@ -27,5 +27,5 @@ FaceOverlay is a native macOS application focused on a simple use case: showing 
 ## Company
 
 - Developer: Kuip Limited
-- Privacy Policy: https://faceoverlay.provable.dev/privacy
-- Terms of Service: https://faceoverlay.provable.dev/terms
+- Privacy Policy: https://faceoverlay.kuip.co.uk/privacy
+- Terms of Service: https://faceoverlay.kuip.co.uk/terms
